@@ -3,41 +3,63 @@ saveBtn = document.getElementById("saveBtn");
 nameBox = document.getElementById("nameBox");
 randomizeBtn = document.getElementById("randomizeBtn");
 teamBox = document.getElementById("teamBox");
+teamNumber = document.getElementById("teamNumber");
 
-let names = [];
+let players = [];
+let amountOfTeams;
+let teams = [];
 
 function addTeamMembers() {
   yourName = nameInput.value;
-  names.push(yourName);
+  players.push(yourName);
 }
 
 saveBtn.addEventListener("click", function () {
-  addTeamMembers(names);
-  nameBox.innerHTML = names;
-  console.log(names);
+  addTeamMembers();
+  nameBox.innerHTML = players;
+  console.log(players);
 });
 
-function shuffleNames(names) {
-  addTeamMembers();
+function shuffleNames(players) {
+  //addTeamMembers();
 
-  for (var i = names.length - 1; i > 0; i--) {
+  for (var i = players.length - 1; i > 0; i--) {
     var j = Math.floor(Math.random() * i);
-    var temp = names[i];
-    names[i] = names[j];
-    names[j] = temp;
+    var temp = players[i];
+    players[i] = players[j];
+    players[j] = temp;
   }
-  return names;
+  return players;
 }
 
-// function splitTeams(names) {
-//   return { team1: names.splice(0, Math.floor(names.length / 2)), team2: names };
-// }
+function createRandomTeams(numberOfTeams) {
+  let shuffledPlayers = shuffleNames(players);
+
+  for (let i = 0; i < numberOfTeams.length; i++) {
+    console.log("heloo");
+    let team = `team ${numberOfTeams[i]}`;
+    console.log("team", team);
+    let teamObject = { [team]: [] };
+    teams.push(teamObject);
+  }
+
+  console.log("randomteams", teams);
+  console.log("numberofteams", numberOfTeams);
+}
+
+function splitTeams(players) {
+  //return { team1: players.splice(0, Math.floor(players.length / 2)), team2: players };
+}
 
 randomizeBtn.addEventListener("click", function () {
-  addTeamMembers(names);
-  shuffleNames(names);
+  //addTeamMembers(players);
+  //shuffleNames(players);
+  let numberOfTeams = teamNumber.value;
+  createRandomTeams(numberOfTeams);
 
-  teamBox.innerHTML = names;
+  // console.log(teams.team1, teams.team2);
 
-  console.log("new", names);
+  // teamBox.innerHTML = `team1: ${teams.team1[0]} ${teams.team1[1]} team2: ${teams.team2[0]} ${teams.team2[1]} `;
+
+  // console.log("new", players);
 });
