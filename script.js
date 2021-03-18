@@ -51,7 +51,7 @@ function teams() {
   for (let i = 0; i < amountOfTeam; i++) {
     let j = i + 1;
     let grpPlayers = finalTeams[i].split(",");
-    innerText += "<td>Group " + j + "<br>";
+    innerText += "<td>Team " + j + "<br>";
     for (var k = 0; k < grpPlayers.length; k++) {
       innerText += grpPlayers[k] + "<br>";
     }

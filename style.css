@@ -50,3 +50,11 @@ h4 {
   font-size: 2rem;
   text-align: center;
 }
+
+table {
+  margin-left: 25%;
+  text-align: center;
+  color: #fdcb6e;
+  font-size: 1.3rem;
+  border: 10px white;
+}
