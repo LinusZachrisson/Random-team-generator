@@ -16,6 +16,12 @@ h1 {
   color: #fdcb6e;
 }
 
+.icons {
+  text-align: center;
+  color: #fdcb6e;
+  margin-top: 20px;
+}
+
 .container {
   display: flex;
   justify-content: center;
